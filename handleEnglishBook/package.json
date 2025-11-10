@@ -1,0 +1,25 @@
+{
+  "name": "book-handle",
+  "version": "1.0.0",
+  "description": "A tool to parse PDF, EPUB, TXT files and extract structured content",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "pdf",
+    "epub",
+    "txt",
+    "parser",
+    "text-extraction"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "epub": "^1.2.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.4.394"
+  }
+}
