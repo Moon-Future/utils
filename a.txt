@@ -1,0 +1,67 @@
+新增需求,输出数据文件应该如下:
+1. 书籍信息文件 bookinfo.json,格式如下
+{
+    "name": "The Kite Runner",
+    "zh": "",
+    "summary": "",
+    "cover": "",
+    "chapters": [
+        {
+            "name": "ONE",
+            "file": "chapter_1",
+            "index": 1,
+            "zh": ""
+        },
+        {
+            "name": "TWO",
+            "file": "chapter_2",
+            "index": 2,
+            "zh": ""
+        },
+        ...
+    ],
+    "filePath": "",
+    "bookId": ""
+}
+bookId 生成唯一值, zh,cover,filePath 先空着
+
+2. 按照章节 file 生成 ${file}.json 文件，格式如下：
+{
+    "name": "ONE",
+    "zh": "",
+    "pages": [
+        [
+            {
+                "en": "ONE",
+                "zh": "第一章",
+                "id": "1443767254437888"
+            },
+            {
+                "en": "'December 2001'",
+                "zh": "2001年12月",
+                "id": "1443767254437889"
+            },
+            {
+                "en": "I became what I am today at the age of twelve, on a frigid overcast day in the winter of 1975. I remember the precise moment, crouching behind a crumbling mud wall, peeking into the alley near the frozen creek. That was a long time ago, but it's wrong what they say about the past, I've learned, about how you can bury it. Because the past claws its way out. Looking back now, I realize I have been peeking into that deserted alley for the last twenty-six years.",
+                "zh": "我成为今天的我，是在1975年某个阴云密布的寒冷冬日，那年我十二岁。我清楚地记得当时自己趴在一堵坍塌的泥墙后面，窥视着那条小巷，旁边是结冰的小溪。许多年过去了，人们说陈年旧事可以被埋葬，然而我终于明白这是错的，因为往事会自行爬上来。回首前尘，我意识到在过去二十六年里，自己始终在窥视着那荒芜的小径。",
+                "id": "1443767254437890"
+            },
+            {
+                "en": "One day last summer, my friend Rahim Khan called from Pakistan. He asked me to come see him. Standing in the kitchen with the receiver to my ear, I knew it wasn't just Rahim Khan on the line. It was my past of unatoned sins. After I hung up, I went for a walk along Spreckels Lake on the northern edge of Golden Gate Park. The early-afternoon sun sparkled on the water where dozens of miniature boats sailed, propelled by a crisp breeze. Then I glanced up and saw a pair of kites, red with long blue tails, soaring in the sky. They danced high above the trees on the west end of the park, over the windmills, floating side by side like a pair of eyes looking down on San Francisco, the city I now call home. And suddenly Hassan's voice whispered in my head: 'For you, a thousand times over'. Hassan the harelipped kite runner.",
+                "zh": "今年夏季的某天，朋友拉辛汗从巴基斯坦打来电话，要我回去探望他。我站在厨房里，听筒贴在耳朵上，我知道电话线连着的，并不只是拉辛汗，还有我过去那些未曾赎还的罪行。挂了电话，我离开家门，到金门公园北边的斯普瑞柯湖边散步。晌午的骄阳照在波光粼粼的水面上，数十艘轻舟在和风的吹拂中漂行。我抬起头，望见两只红色的风筝，带着长长的蓝色尾巴，在天空中冉冉升起。它们舞动着，飞越公园西边的树林，飞越风车，并排飘浮着，如同一双眼睛俯视着旧金山，这个我现在当成家园的城市。突然间，哈桑的声音在我脑中响起：为你，千千万万遍。哈桑，那个兔唇的哈桑，那个追风筝的人。",
+                "id": "1443767254437891"
+            },
+            {
+                "en": "I sat on a park bench near a willow tree. I thought about something Rahim Khan said just before he hung up, almost as an after thought. 'There is a way to be good again'. I looked up at those twin kites. I thought about Hassan. Thought about Baba. Ali. Kabul. I thought of the life I had lived until the winter of 1975 came and changed everything. And made me what I am today.",
+                "zh": "我在公园里柳树下的长凳坐下，想着拉辛汗在电话中说的那些事情，再三思量。那儿有再次成为好人的路。我抬眼看看那比翼齐飞的风筝。我忆起哈桑。我缅怀爸爸。我想到阿里。我思念喀布尔。我想起曾经的生活，想起1975年那个改变了一切的冬天。那造就了今天的我。",
+                "id": "1443767258632192"
+            }
+        ]
+    ],
+}
+pages 是当前章节一共有多少页，如果不知道有多少页，可以只分一页，
+pages 元素的当前页段落列表，项目解析英文书籍，如果 en 应该有值，zh 先空着，生成唯一 id
+
+3. 文件生成在 bookInfo 目录下
+
+4. createDocumentStructure 方法不变，依然执行，新增方法实现上面需求
